@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/Css/style-login.css" />
+    <style>
+      body {
+        background-color: #e4e0e1;
+        background: linear-gradient(
+          180deg,
+          rgb(234, 219, 212) 10%,
+          rgba(214, 192, 179, 1) 67%
+        );
+        padding: 0;
+        margin: 0;
+        font-family: "Lexend", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="login">
+        <img src="assets/img/logo.png" alt="logo" style="width: 100px" />
+        <h1 class="heading">KapeBara Admin</h1>
+        <div>
+          <input
+            id="email"
+            class="input"
+            type="text"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div>
+          <input
+            id="password"
+            class="input"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div
+          class="g-recaptcha"
+          data-sitekey="6LfBx5csAAAAAJ9qOX0g9HNi5zP8VdLzdV0d-19z"
+        ></div>
+
+        <span
+          ><a class="forgot-pass-a" href="forgot.html"
+            >Forgot password?</a
+          ></span
+        >
+        <div>
+          <button class="btn" onclick="handleAdminLogin()">Login</button>
+        </div>
+
+        <script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+        ></script>
+      </div>
+    </div>
+
+    <!--SCRIPT-->
+    <script src="assets/scripts/auth.js"></script>
+  </body>
+</html>

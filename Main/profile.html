@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile – KapeBara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/57260c913b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/Css/style-mainpage.css" />
+    <link rel="stylesheet" href="assets/Css/profile.css" />
+    <link rel="stylesheet" href="assets/Css/navbar.css" />
+  </head>
+
+  <body>
+    <div class="toast-wrap" id="toastWrap"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/img/logo.png"
+            style="width: 75px"
+            alt="KapeBara"
+          />KapeBara
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="mainpage.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Services.html">Services</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Catalogue</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="catalogue.html#drinks"
+                    >Drinks</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="catalogue.html#snacks"
+                    >Snacks</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">About Us</a>
+            </li>
+          </ul>
+          <div id="user-name">
+            <a class="nav-link" href="profile.html"
+              ><i class="fa-solid fa-circle-user"></i> My Profile</a
+            >
+          </div>
+          <div id="logout"></div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="profile-page">
+      <!-- SIDEBAR -->
+      <aside class="p-sidebar">
+        <div class="p-sidebar-avatar" id="sideAvatar">
+          <img src="assets/img/profileCapybara.jpg" alt="" />
+        </div>
+
+        <div class="p-sidebar-name" id="sidebarName">Guest</div>
+
+        <div class="p-nav-label">My Account</div>
+        <button class="p-nav-btn active" onclick="show('edit-profile', this)">
+          <i class="fa-solid fa-user-pen"></i> Edit Profile
+        </button>
+
+        <div class="p-nav-label">My Purchase</div>
+        <button
+          class="p-nav-btn"
+          onclick="window.location.href = 'history.html'"
+        >
+          <i class="fa-solid fa-receipt"></i> Order History
+        </button>
+        <button class="p-nav-btn" onclick="show('reviews', this)">
+          <i class="fa-solid fa-receipt"></i> Review Product
+        </button>
+
+        <div class="p-nav-label">Support</div>
+        <button class="p-nav-btn" onclick="show('feedback', this)">
+          <i class="fa-solid fa-comment-dots"></i> Feedback
+        </button>
+
+        <div style="margin-top: 8px">
+          <button class="p-nav-btn logout" onclick="handleLogout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="p-main">
+        <!-- EDIT PROFILE -->
+        <div class="p-section active" id="edit-profile">
+          <div class="p-title">My Profile</div>
+          <div class="p-sub">Manage and protect your account</div>
+          <hr class="p-hr" />
+          <div style="display: flex; gap: 24px; flex-wrap: wrap">
+            <div style="flex: 1; min-width: 240px">
+              <div class="fg2" style="margin-bottom: 13px">
+                <div class="f-g">
+                  <label class="f-lb">Full Name</label>
+                  <input
+                    class="f-in"
+                    id="iName"
+                    type="text"
+                    placeholder="Full name"
+                  />
+                </div>
+                <div class="f-g">
+                  <label class="f-lb">Email</label>
+                  <input
+                    class="f-in"
+                    id="iEmail"
+                    type="email"
+                    placeholder="you@email.com"
+                  />
+                </div>
+                <div class="f-g">
+                  <label class="f-lb">Phone Number</label>
+                  <input
+                    class="f-in"
+                    id="iPhone"
+                    type="tel"
+                    placeholder="+63 9XX XXX XXXX"
+                  />
+                </div>
+              </div>
+              <div class="f-g" style="margin-bottom: 13px">
+                <label class="f-lb">Address</label>
+                <input
+                  class="f-in"
+                  id="iAddr"
+                  type="text"
+                  placeholder="Street / Barangay"
+                />
+              </div>
+              <div class="f-g">
+                <label class="f-lb">City</label>
+                <input
+                  class="f-in"
+                  id="iCity"
+                  type="text"
+                  placeholder="City"
+                  style="max-width: 210px"
+                />
+              </div>
+            </div>
+
+            <div class="form-acts">
+              <button class="kb-btn" onclick="saveProfile()">
+                Save Changes
+              </button>
+              <button class="kb-btn kb-btn-out" onclick="cancelProfile()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SELECT REVIEWS -->
+        <div class="p-section" id="reviews">
+          <div class="p-title">Review Product</div>
+          <div class="p-sub">
+            Let us know what you think about our products!
+          </div>
+          <hr class="p-hr" />
+
+          <div class="ord-wrap">
+            <table class="ord-table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="orders-tbody">
+                <tr class="ord-row">
+                  <td
+                    colspan="5"
+                    style="text-align: center; color: #7a6454; padding: 22px"
+                  >
+                    Loading orders…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          
+        </div>
+
+        <!-- ── Review Modal ──────────────────────────────────────────── -->
+          <div class="modal-backdrop" id="review-modal">
+            <div class="modal-box">
+              <button class="modal-close" onclick="closeModal()">
+                &#10005;
+              </button>
+
+              <div class="modal-title">Leave a Review</div>
+              <div class="modal-product">
+                Product: <strong id="modal-product-name"></strong>
+              </div>
+
+              <label class="f-lb">Your Rating</label>
+              <div class="stars-row" id="star-container">
+                <button class="star-btn" data-value="1">&#9733;</button>
+                <button class="star-btn" data-value="2">&#9733;</button>
+                <button class="star-btn" data-value="3">&#9733;</button>
+                <button class="star-btn" data-value="4">&#9733;</button>
+                <button class="star-btn" data-value="5">&#9733;</button>
+              </div>
+              <div class="rating-label" id="rating-label">
+                Tap a star to rate
+              </div>
+
+              <input type="hidden" id="modal-rating" value="0" />
+              <input type="hidden" id="modal-product-id" value="" />
+
+              <label class="f-lb" for="modal-comment">Your Comment</label>
+              <textarea
+                class="modal-comment"
+                id="modal-comment"
+                placeholder="Share your experience with this product…"
+              ></textarea>
+
+              <div class="modal-msg" id="modal-error"></div>
+              <div class="modal-msg" id="modal-success"></div>
+
+              <div class="modal-acts">
+                <button class="btn-submit" onclick="submitReview()">
+                  Submit Review
+                </button>
+                <button class="btn-cancel" onclick="closeModal()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+        <!-- FEEDBACK -->
+        <div class="p-section" id="feedback">
+          <div class="p-title">Send Feedback</div>
+          <div class="p-sub">
+            We'd love to hear what you think about KapeBara
+          </div>
+          <hr class="p-hr" />
+
+          <div class="f-g" style="margin-bottom: 18px">
+            <label class="f-lb">Overall Experience</label>
+            <div class="fb-stars" id="fbStars">
+              <i class="fa-star fa-regular" data-v="1"></i>
+              <i class="fa-star fa-regular" data-v="2"></i>
+              <i class="fa-star fa-regular" data-v="3"></i>
+              <i class="fa-star fa-regular" data-v="4"></i>
+              <i class="fa-star fa-regular" data-v="5"></i>
+            </div>
+            <div class="fb-rating-label" id="fbRatingLabel">
+              Tap a star to rate
+            </div>
+          </div>
+
+          <div class="f-g" style="margin-bottom: 14px">
+            <label class="f-lb">Category</label>
+            <select class="f-in" id="fbCategory">
+              <option value="">Select a category...</option>
+              <option>Product / Menu</option>
+              <option>Delivery &amp; Packaging</option>
+              <option>Website / App</option>
+              <option>Customer Service</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="f-g" style="margin-bottom: 14px">
+            <label class="f-lb">Subject</label>
+            <input
+              class="f-in"
+              id="fbSubject"
+              type="text"
+              placeholder="Brief summary of your feedback"
+            />
+          </div>
+
+          <div class="f-g" style="margin-bottom: 18px">
+            <label class="f-lb">Message</label>
+            <textarea
+              class="f-in"
+              id="fbMessage"
+              rows="5"
+              placeholder="Tell us more..."
+              style="resize: vertical"
+            ></textarea>
+          </div>
+
+          <div class="f-g" style="margin-bottom: 20px">
+            <label class="f-lb"
+              >Attach a Photo
+              <span
+                style="
+                  font-weight: 400;
+                  text-transform: none;
+                  letter-spacing: 0;
+                  color: #b0a098;
+                "
+                >(optional)</span
+              ></label
+            >
+            <label for="fbPhoto" style="display: inline-block">
+              <div
+                class="photo-box"
+                style="
+                  flex-direction: row;
+                  justify-content: flex-start;
+                  gap: 12px;
+                  padding: 12px 16px;
+                  max-width: 320px;
+                "
+              >
+                <div
+                  class="photo-circle"
+                  id="fbPhotoCircle"
+                  style="
+                    width: 46px;
+                    height: 46px;
+                    font-size: 16px;
+                    flex-shrink: 0;
+                  "
+                >
+                  <i class="fa-solid fa-paperclip"></i>
+                </div>
+                <div>
+                  <div class="photo-txt">Click to attach image</div>
+                  <div class="photo-hint">JPG, PNG - max 2 MB</div>
+                </div>
+              </div>
+            </label>
+            <input
+              type="file"
+              id="fbPhoto"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+
+          <div class="form-acts">
+            <button class="kb-btn" onclick="submitFeedback()">
+              <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+            </button>
+            <button class="kb-btn kb-btn-out" onclick="resetFeedback()">
+              Clear
+            </button>
+          </div>
+
+          <div id="fbHistory" style="display: none; margin-top: 28px">
+            <div
+              class="p-sub"
+              style="margin-bottom: 8px; font-weight: 600; color: #493628"
+            >
+              Your Previous Feedback
+            </div>
+            <div
+              id="fbHistoryList"
+              style="display: flex; flex-direction: column; gap: 9px"
+            ></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="AboutUs.html">about us</a></li>
+              <li><a href="Services.html">our services</a></li>
+              <li><a href="terms.html">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="#">shipping</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="catalogue.html">coffees</a></li>
+              <li><a href="catalogue.html">snacks</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="https://www.youtube.com/@kapebara-f8j"
+                ><img src="assets/img/youtube.png" alt="YouTube" /></a
+              ><a href="https://www.facebook.com/profile.php?id=61578439907150"
+                ><img src="assets/img/facebook (white).png" alt="Facebook" /></a
+              ><a href="https://www.instagram.com/1kapebara1"
+                ><img
+                  src="assets/img/instagram (white).png"
+                  alt="Instagram" /></a
+              ><a href="#"><img src="assets/img/tik-tok.png" alt="TikTok" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/scripts/auth.js"></script>
+    <script src="assets/scripts/profile.js"></script>
+    <script src="assets/scripts/comments.js"></script>
+    <script>
+      let fbRating = 0;
+      const starLabels = ["", "Poor", "Fair", "Good", "Great", "Excellent!"];
+      document.addEventListener("DOMContentLoaded", function () {
+        loadProfile();
+        document.querySelectorAll("#fbStars i").forEach(function (star) {
+          star.addEventListener("click", function () {
+            fbRating = +this.dataset.v;
+            renderStars(fbRating);
+            document.getElementById("fbRatingLabel").textContent =
+              starLabels[fbRating];
+          });
+
+          star.addEventListener("mouseover", function () {
+            renderStars(+this.dataset.v);
+          });
+
+          star.addEventListener("mouseout", function () {
+            renderStars(fbRating);
+          });
+        });
+
+        document
+          .getElementById("fbPhoto")
+          .addEventListener("change", function () {
+            if (!this.files[0]) return;
+            const r = new FileReader();
+            r.onload = function (e) {
+              document.getElementById("fbPhotoCircle").innerHTML =
+                '<img src="' +
+                e.target.result +
+                '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
+            };
+            r.readAsDataURL(this.files[0]);
+            toast("Photo attached!");
+          });
+
+        loadMyFeedback();
+      });
+
+      function renderStars(n) {
+        document.querySelectorAll("#fbStars i").forEach(function (s, i) {
+          s.className = i < n ? "fa-star fa-solid" : "fa-star fa-regular";
+        });
+      }
+
+      function submitFeedback() {
+        const cat = document.getElementById("fbCategory").value;
+        const subj = document.getElementById("fbSubject").value.trim();
+        const msg = document.getElementById("fbMessage").value.trim();
+        const photo = document.getElementById("fbPhoto").files[0];
+
+        if (!fbRating) {
+          toast("Please give a star rating.");
+          return;
+        }
+
+        if (!cat) {
+          toast("Please select a category.");
+          return;
+        }
+
+        if (!subj) {
+          toast("Please enter a subject.");
+          return;
+        }
+
+        if (!msg) {
+          toast("Please write your feedback.");
+          return;
+        }
+
+        const fd = new FormData();
+        fd.append("action", "add");
+        fd.append("rating", fbRating);
+        fd.append("category", cat);
+        fd.append("subject", subj);
+        fd.append("message", msg);
+
+        if (photo) {
+          fd.append("photo", photo);
+        }
+
+        fetch("api/feedback.php", {
+          method: "POST",
+          body: fd,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              toast("Thank you for your feedback!");
+              resetFeedback();
+              loadMyFeedback();
+            } else {
+              toast(data.message || "Failed to submit feedback");
+            }
+          })
+          .catch(() => {
+            toast("Failed to submit feedback");
+          });
+      }
+
+      function loadMyFeedback() {
+        fetch("api/feedback.php?action=mine")
+          .then((res) => res.json())
+          .then((rows) => {
+            const list = document.getElementById("fbHistoryList");
+            const wrap = document.getElementById("fbHistory");
+
+            list.innerHTML = "";
+
+            if (!rows.length) {
+              wrap.style.display = "none";
+              return;
+            }
+
+            wrap.style.display = "block";
+
+            rows.forEach((item) => {
+              const card = document.createElement("div");
+              card.className = "fb-history-card";
+
+              const stars =
+                "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+              const dateText = new Date(item.created_at).toLocaleDateString(
+                "en-PH",
+                {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                },
+              );
+
+              card.innerHTML = `
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                    <span class="fb-hist-stars">${stars}</span>
+                    <span class="addr-badge">${item.category}</span>
+                    <span style="margin-left:auto;font-size:11px;color:#b0a098;">${dateText}</span>
+                  </div>
+                  <div style="font-size:13px;font-weight:600;color:#493628;margin-bottom:2px;">${item.subject}</div>
+                  <div style="font-size:12px;color:#7a6454;">${item.message}</div>
+                  ${item.photo ? `<div style="margin-top:10px;"><img src="assets/img/feedback/${item.photo}" style="width:90px;height:90px;object-fit:cover;border-radius:10px;border:1px solid #c2b3a8;"></div>` : ""}
+                `;
+
+              list.appendChild(card);
+            });
+          })
+          .catch((err) => console.error("Feedback history load error:", err));
+      }
+
+      function resetFeedback() {
+        fbRating = 0;
+        renderStars(0);
+        document.getElementById("fbRatingLabel").textContent =
+          "Tap a star to rate";
+        document.getElementById("fbCategory").value = "";
+        document.getElementById("fbSubject").value = "";
+        document.getElementById("fbMessage").value = "";
+        document.getElementById("fbPhotoCircle").innerHTML =
+          '<i class="fa-solid fa-paperclip"></i>';
+        document.getElementById("fbPhoto").value = "";
+      }
+    </script>
+  </body>
+</html>

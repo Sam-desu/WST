@@ -1,0 +1,194 @@
+/* ── Comments Section ── */
+.cm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.cm-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #493628;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+/* Table */
+.cm-table-wrap {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(73,54,40,.08);
+  overflow: hidden;
+}
+.cm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.cm-table thead tr {
+  background: #f5ede6;
+}
+.cm-table thead th {
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #6b4c36;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.cm-table tbody tr {
+  border-bottom: 1px solid #f0e8e2;
+  transition: background .15s;
+}
+.cm-table tbody tr:last-child { border-bottom: none; }
+.cm-table tbody tr:hover { background: #fdf6f2; }
+.cm-table td { padding: 13px 16px; vertical-align: middle; }
+ 
+/* Cells */
+.cm-username {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  color: #3b2a1e;
+}
+.cm-username i { color: #b07a55; font-size: 1.1rem; }
+.cm-product {
+  display: inline-block;
+  background: #f5ede6;
+  color: #6b4c36;
+  border-radius: 20px;
+  padding: 3px 11px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.cm-stars { display: flex; gap: 2px; }
+.cm-star-filled { color: #f59e0b; font-size: .85rem; }
+.cm-star-empty  { color: #d6c9c0; font-size: .85rem; }
+.cm-comment-text {
+  color: #5a3e2e;
+  line-height: 1.5;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cm-date { color: #9d7b65; font-size: 0.8rem; white-space: nowrap; }
+ 
+/* Empty state */
+.cm-empty {
+  text-align: center;
+  padding: 48px 0;
+  color: #b09585;
+  font-size: 0.95rem;
+}
+ 
+/* Delete button */
+.cm-btn-del {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  padding: 6px 9px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background .15s, color .15s;
+}
+.cm-btn-del:hover { background: #fde8e8; color: #922b21; }
+ 
+/* Modal */
+.cm-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.cm-modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 420px;
+  max-width: 95vw;
+  box-shadow: 0 8px 40px rgba(73,54,40,.18);
+  overflow: hidden;
+}
+.cm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid #f0e8e2;
+}
+.cm-modal-header h2 { font-size: 1.05rem; font-weight: 700; color: #3b2a1e; margin: 0; }
+.cm-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #9d7b65;
+  cursor: pointer;
+}
+.cm-modal-body { padding: 24px 22px; text-align: center; }
+.cm-delete-icon-wrap {
+  font-size: 2.2rem;
+  color: #e67e22;
+  margin-bottom: 12px;
+}
+.cm-delete-msg { color: #5a3e2e; font-size: 0.9rem; line-height: 1.5; margin: 0; }
+.cm-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
+  border-top: 1px solid #f0e8e2;
+}
+.cm-btn-ghost {
+  background: none;
+  border: 1.5px solid #d6bfb0;
+  color: #6b4c36;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.cm-btn-ghost:hover { background: #f5ede6; }
+.cm-btn-danger {
+  background: #c0392b;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.cm-btn-danger:hover { background: #922b21; }
+ 
+/* Toast */
+.cm-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+}
+.cm-toast.show { opacity: 1; transform: translateY(0); }
+.cm-toast-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #3b2a1e;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
+.cm-toast-icon { color: #6fcf97; font-size: 1rem; }

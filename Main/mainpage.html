@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/57260c913b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/Css/chat.css">
+    <link rel="stylesheet" href="assets/Css/style-mainpage.css" />
+    <link rel="stylesheet" href="assets/Css/navbar.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="assets/img/shadergradient.webm" type="video/webm" />
+    </video>
+    <div class="Main-container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="mainpage.html">
+            <img src="assets/img/logo.png" style="width: 75px" alt="" />
+            KapeBara</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="mainpage.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Services.html">Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Catalogue
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="catalogue.html#drinks"
+                      >Drinks</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="catalogue.html#snacks"
+                      >Snacks</a
+                    >
+                  </li>
+                  <!--<li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>-->
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-disabled="true" href="AboutUs.html"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+            <div id="user-name">
+              <a class="nav-link" aria-disabled="true" href="login.html"
+                >Login</a
+              >
+              <form action="signup.html">
+                <button class="btn">Signup</button>
+              </form>
+            </div>
+            <div id="logout">
+              <!--CREATES A LOGOUT BUTTON-->
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      
+      <div class="herosection">
+        <div class="catch">
+          <h1>KapeBara</h1>
+          <span class="quote">“Too chill to rush. Too good to skip.”</span>
+          <button class="herobtn" id="get-coffee">Get Coffee</button>
+        </div>
+        <div class="pictures">
+          <div class="bentobox">
+            <div class="box1"><a href="login.html" class="fill-div"></a></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+            <div class="box4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="Seller">
+        <div class="seller-h1"><h1>Our Top Seller</h1></div>
+        <div class="items-Seller">
+          <div class="items">
+            <img
+              class="items-img"
+              src="assets/img/items/americano.jfif"
+              alt=""
+            />
+            Kape Amerikano
+            <div class="items-btn">
+              ₱100
+              <form action="signup.html">
+                <button class="herobtn">Order Now</button>
+              </form>
+            </div>
+          </div>
+          <div class="items">
+            <img class="items-img" src="assets/img/items/vanilla.jfif" alt="" />
+            Kape Vanilla
+            <div class="items-btn">
+              ₱130
+              <form action="signup.html">
+                <button class="herobtn">Order Now</button>
+              </form>
+            </div>
+          </div>
+          <div class="items">
+            <img class="items-img" src="assets/img/items/mocha.jfif" alt="" />
+            Kape Mocha
+            <div class="items-btn">
+              ₱140
+              <form action="signup.html">
+                <button class="herobtn">Order Now</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="Feedback">
+        <div class="Feedback-h1">
+          <h1>"Feedbacks"</h1>
+        </div>
+        <div class="slider">
+          <div class="track">
+            <div class="slide slide1">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Peak</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Johnny Goods</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide2">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">One of the Best Coffee I've ever tasted -</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>John Lloyd Cruz</b></p>
+              <p class="author-work">Artist</p>
+            </div>
+            <div class="slide slide3">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Absolute Cinema</p>
+              <span class="star">★★★★★</span>
+              <p class="author"><b>Mark Eros Borlongan</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide4">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Sarap nya guys</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Hashmir Akhubar</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide5">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Me like coffee</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Special Johnny</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+
+            <div class="slide slide1">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Peak</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Johnny Goods</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide2">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">One of the Best Coffee I've ever tasted -</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>John Lloyd Cruz</b></p>
+              <p class="author-work">Artist</p>
+            </div>
+            <div class="slide slide3">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Absolute Cinema</p>
+              <span class="star">★★★★★</span>
+              <p class="author"><b>Mark Eros Borlongan</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide4">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Sarap nya guys</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Hashmir Akhubar</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+            <div class="slide slide5">
+              <div class="slide-h1">
+                <h1>"</h1>
+              </div>
+              <p class="comment">Me like coffee</p>
+              <span class="star">★★★★<span class="unstar">★</span></span>
+              <p class="author"><b>Special Johnny</b></p>
+              <p class="author-work">Internet Influencer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-us">
+        <div class="why-us-div1">
+          <h1>Why Drink with Us?</h1>
+          <p>
+            We serve more than just coffee—we serve comfort. Every cup is
+            carefully crafted using quality ingredients to give you rich flavor,
+            smooth balance, and a relaxing experience. Inspired by the calm and
+            friendly capybara, our drinks are made for those who want to slow
+            down, enjoy the moment, and still get that perfect caffeine boost.
+            Chill vibes, great taste, and coffee you’ll keep coming back for.
+          </p>
+        </div>
+        <div class="why-us-div2"><img src="assets/img/logo.png" alt="" /></div>
+      </div>
+    </div>
+
+    <button id="open-chat-btn" class="chat-toggle" title="Chat">
+      💬
+      <span id="chat-notification-badge" class="notification-badge hidden">0</span>
+    </button>
+    <div id="chat-popup" class="chat-popup" aria-hidden="true">
+      <div class="header">
+        <div>Chat</div>
+        <div class="header-buttons">
+          <button
+            id="chat-back-btn"
+            class="header-btn"
+            style="display: none;"
+            title="Back"
+          >
+            ← Back
+          </button>
+          <button
+            id="close-chat-btn"
+            class="header-btn"
+            title="Close"
+          >
+            ✖
+          </button>
+        </div>
+      </div>
+      <div class="content" id="chat-content">
+        <div class="chat-option-list">
+          <button id="btn-ai-chat" class="btn btn-outline-secondary">
+            AI Chat
+          </button>
+          <button id="btn-admin-chat" class="btn btn-outline-primary">
+            Admin Chat
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="AboutUs.html">about us</a></li>
+              <li><a href="Services.html">our services</a></li>
+              <li><a href="terms.html">privacy policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="shipping.html">shipping</a></li>
+              <li><a href="order status.html">order status</a></li>
+              <li><a href="payment options.html">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="catalogue.html">coffees</a></li>
+              <li><a href="catalogue.html">snacks</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="https://www.youtube.com/@kapebara-f8j"> <img src="assets/img/youtube.png" alt="""> </a>
+              <a href="https://www.facebook.com/profile.php?id=61578439907150#"> <img src="assets/img/facebook (white).png" alt="" /> </a>
+              <a href="https://www.instagram.com/1kapebara1"> <img src="assets/img/instagram (white).png" alt="" /> </a>
+              <a href="https://www.tiktok.com/@kapebara205?_r=1&_t=ZS-95M16JNWiYK"> <img src="assets/img/tik-tok.png" alt="" /> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/scripts/auth.js"></script>
+    <script src="assets/scripts/chat.js"></script>
+    <script>
+      const button = document.getElementById("get-coffee");
+      if (!localStorage.getItem("user_role")){
+        button.addEventListener("click", () => {window.location.href='login.html';})
+        
+      } else {
+        
+        button.addEventListener("click", () => {window.location.href='catalogue.html';})
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">KapeBara</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    
+    <link rel="stylesheet" href="assets/Css/ItemsTemplate.css" />
+    <link rel="stylesheet" href="assets/Css/notice-card.css" />
+    <link rel="stylesheet" href="assets/Css/style-mainpage.css">
+    <link rel="stylesheet" href="assets/Css/navbar.css" />
+  </head>
+
+  <body>
+
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="mainpage.html">
+          <img src="assets/img/logo.png" style="width: 48px" alt="KapeBara Logo" />
+          KapeBara
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="mainpage.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >Catalogue</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="catalogue.html#drinks">Drinks</a></li>
+                <li><a class="dropdown-item" href="catalogue.html#snacks">Snacks</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AboutUs.html">About Us</a>
+            </li>
+          </ul>
+          <div id="user-name">
+            <a class="nav-link" href="login.html">Login</a>
+            <form action="signup.html">
+              <button class="btn">Signup</button>
+            </form>
+          </div>
+          <div id="logout"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════ TOAST NOTICE ═══════════════ -->
+    <div class="toasty" id="toasty">
+      <div class="notice-card">
+        <svg class="wave" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,256L11.4,240C22.9,224,46,192,69,192C91.4,192,114,224,137,234.7C160,245,183,235,206,213.3C228.6,192,251,160,274,149.3C297.1,139,320,149,343,181.3C365.7,213,389,267,411,282.7C434.3,299,457,277,480,250.7C502.9,224,526,192,549,181.3C571.4,171,594,181,617,208C640,235,663,277,686,256C708.6,235,731,149,754,122.7C777.1,96,800,128,823,165.3C845.7,203,869,245,891,224C914.3,203,937,117,960,112C982.9,107,1006,181,1029,197.3C1051.4,213,1074,171,1097,144C1120,117,1143,107,1166,133.3C1188.6,160,1211,224,1234,218.7C1257.1,213,1280,139,1303,133.3C1325.7,128,1349,192,1371,192C1394.3,192,1417,128,1429,96L1440,64L1440,320L1428.6,320C1417.1,320,1394,320,1371,320C1348.6,320,1326,320,1303,320C1280,320,1257,320,1234,320C1211.4,320,1189,320,1166,320C1142.9,320,1120,320,1097,320C1074.3,320,1051,320,1029,320C1005.7,320,983,320,960,320C937.1,320,914,320,891,320C868.6,320,846,320,823,320C800,320,777,320,754,320C731.4,320,709,320,686,320C662.9,320,640,320,617,320C594.3,320,571,320,549,320C525.7,320,503,320,480,320C457.1,320,434,320,411,320C388.6,320,366,320,343,320C320,320,297,320,274,320C251.4,320,229,320,206,320C182.9,320,160,320,137,320C114.3,320,91,320,69,320C45.7,320,23,320,11,320L0,320Z" fill-opacity="1"></path>
+        </svg>
+        <div class="notice-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke-width="0" fill="currentColor" stroke="currentColor" class="notice-icon">
+            <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"></path>
+          </svg>
+        </div>
+        <div class="message-text-container">
+          <p class="message-text">Added to Cart</p>
+          <p class="sub-text">Click the cart button to chill with your coffee</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <div class="page-wrapper">
+
+      <!-- Breadcrumb -->
+      <p class="breadcrumb-trail Pages">
+        <a href="mainpage.html">Home</a>
+        <span class="crumb-sep">›</span>
+        <a href="catalogue.html">Catalogue</a>
+        <span class="crumb-sep">›</span>
+        <span id="product-category">...</span>
+        <span class="crumb-sep">›</span>
+        <span id="product-name">...</span>
+      </p>
+
+      <!-- Product Layout -->
+      <div class="main-container">
+
+        <!-- LEFT: Image + Buttons -->
+        <div class="product-left">
+          <div class="image-card Coffee">
+            <img
+              class="product-image"
+              id="product-image"
+              src=""
+              alt=""
+            />
+          </div>
+          <div class="Buy">
+            <button class="addtocart" onclick="">
+              <i class="fa fa-cart-plus"></i> Add to Cart
+            </button>
+            <button class="buywithvoucher">
+              <i class="fa fa-bolt"></i> Buy Now
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Info + Comments -->
+        <div class="product-right Description">
+
+          <!-- Product Info -->
+          <div class="product-info-block">
+            <p class="NameCoffee" id="product-title">Loading...</p>
+            <div class="product-meta">
+              <span id="productRating">⭐⭐⭐⭐⭐</span>
+              <span class="meta-divider">|</span>
+              <span id="totalComments">0</span> Reviews
+              <span class="meta-divider">|</span>
+              <span id="totalSold">0</span> Sold
+            </div>
+            <p class="Price" id="product-price"></p>
+            <p class="product-desc" id="product-description"></p>
+          </div>
+
+          <!-- Divider -->
+          <div class="section-divider"></div>
+
+          <!-- Comments Section -->
+          <div class="comments-section">
+            <h1>Reviews</h1>
+
+            <!-- Star Filter -->
+            <div class="star-filter">
+              <button class="star-filter-btn active" data-stars="all">All</button>
+              <button class="star-filter-btn" data-stars="5">⭐⭐⭐⭐⭐</button>
+              <button class="star-filter-btn" data-stars="4">⭐⭐⭐⭐</button>
+              <button class="star-filter-btn" data-stars="3">⭐⭐⭐</button>
+              <button class="star-filter-btn" data-stars="2">⭐⭐</button>
+              <button class="star-filter-btn" data-stars="1">⭐</button>
+            </div>
+
+            <!-- Comments List -->
+            <div class="comments-list" id="comments-list">
+              <p>Loading comments...</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/scripts/catalogue.js"></script>
+    <script src="assets/scripts/item.js"></script>
+    <script src="assets/scripts/auth.js"></script>
+  </body>
+</html>

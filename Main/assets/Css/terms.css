@@ -1,0 +1,126 @@
+.terms-container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 30px auto 50px;
+      background: white;
+      border-radius: 20px;
+      padding: 50px 60px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      font-family: 'Lexend', sans-serif;
+    }
+
+    .terms-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #493628;
+      padding-bottom: 20px;
+    }
+
+    .terms-header h1 {
+      color: #493628;
+      margin-bottom: 10px;
+    }
+
+    .terms-section {
+      margin-bottom: 30px;
+    }
+
+    .terms-section h2 {
+      color: #493628;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .terms-section p, .terms-section li {
+      color: #333;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .terms-section ul {
+      padding-left: 25px;
+      margin: 10px 0;
+    }
+
+    .terms-section li {
+      margin-bottom: 8px;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0;
+      background: #493628;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .back-button:hover {
+      background: #38291f;
+    }
+
+.last-updated {
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+/* Fixed background slider that stays in place while scrolling */
+.slider {
+  z-index: -1;
+  position: fixed;      
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(1920px * 10);
+  height: 100%;
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track img {
+  filter: blur(5px) brightness(70%);
+  width: 1920px;
+  height: 100vh;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+.main-container {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}

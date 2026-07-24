@@ -1,0 +1,596 @@
+/* ============================================================
+   Manage Products — products.css
+   KapeBara Admin Panel
+   ============================================================ */
+
+:root {
+  --kape:         #493628;
+  --kape-hover:   #38291f;
+  --kape-light:   #7a5c44;
+  --kape-pale:    #f5f0eb;
+  --kape-border:  #e8dfd6;
+}
+
+/* ── Toast ── */
+.pm-toast {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.pm-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.pm-toast-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--kape);
+  color: #f5f0eb;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 18px rgba(73,54,40,0.22);
+}
+
+.pm-toast-icon { font-size: 15px; color: #a8e6c1; }
+
+/* ── Header ── */
+.pm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.pm-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--kape);
+  margin: 0;
+}
+
+.pm-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Filter Tabs ── */
+.pm-filter-tabs {
+  display: flex;
+  gap: 2px;
+  background: #f0ebe5;
+  border-radius: 8px;
+  padding: 3px;
+  border: 1px solid var(--kape-border);
+}
+
+.pm-tab {
+  padding: 5px 14px;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 400;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+  color: #7a6555;
+  transition: all 0.15s;
+}
+
+.pm-tab.active {
+  background: var(--kape);
+  color: #fff;
+  font-weight: 500;
+}
+
+.pm-tab:hover:not(.active) {
+  background: #e4dbd3;
+  color: var(--kape);
+}
+
+/* ── Add Button ── */
+.pm-btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  background: var(--kape);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pm-btn-add:hover { background: var(--kape-hover); }
+
+/* ── Table Wrapper ── */
+.pm-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--kape-border);
+  background: #fff;
+}
+
+/* ── Table ── */
+.pm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+.pm-table thead tr {
+  border-bottom: 1px solid var(--kape-border);
+}
+
+.pm-table th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b4c36;
+  background: var(--kape-pale);
+}
+
+.pm-table th:first-child { border-radius: 12px 0 0 0; }
+.pm-table th:last-child  { border-radius: 0 12px 0 0; }
+
+.pm-table td {
+  padding: 10px 14px;
+  color: #333;
+  border-bottom: 1px solid #f2ece6;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pm-table tr:last-child td { border-bottom: none; }
+
+.pm-table tbody tr:hover td { background: #faf6f2; }
+
+/* ── Product thumbnail ── */
+.pm-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--kape-border);
+  display: block;
+  background: var(--kape-pale);
+}
+
+.pm-thumb-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px dashed var(--kape-border);
+  background: var(--kape-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c8b8a8;
+  font-size: 14px;
+}
+
+/* ── Product name cell ── */
+.pm-product-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pm-product-name {
+  font-weight: 500;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pm-product-desc {
+  font-size: 11px;
+  color: #bbb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Category badge ── */
+.pm-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.pm-cat-drinks {
+  background: #e9f5ff;
+  color: #1654a0;
+}
+
+.pm-cat-snacks {
+  background: #fef3e2;
+  color: #92520a;
+}
+
+/* ── Status badge ── */
+.pm-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.pm-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pm-status-in {
+  background: #e8f5ee;
+  color: #1a6b3a;
+}
+
+.pm-status-in::before  { background: #2da85a; }
+
+.pm-status-out {
+  background: #fcebeb;
+  color: #a32d2d;
+}
+
+.pm-status-out::before { background: #e24b4a; }
+
+/* ── Muted text ── */
+.pm-muted { color: #aaa; }
+
+/* ── Action buttons ── */
+.pm-actions-cell {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.pm-btn-edit,
+.pm-btn-del {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.pm-btn-edit {
+  background: transparent;
+  border-color: #ddd;
+  color: #666;
+}
+
+.pm-btn-edit:hover {
+  background: #f5f0eb;
+  border-color: var(--kape);
+  color: var(--kape);
+}
+
+.pm-btn-del {
+  background: transparent;
+  border-color: #f7c1c1;
+  color: #a32d2d;
+}
+
+.pm-btn-del:hover {
+  background: #fcebeb;
+  border-color: #e24b4a;
+}
+
+/* ── Empty state ── */
+.pm-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* ── Modal Backdrop ── */
+.pm-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 25, 15, 0.45);
+  z-index: 300;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+}
+
+/* ── Modal Box ── */
+.pm-modal {
+  background: #fff;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(73, 54, 40, 0.18);
+  overflow: hidden;
+  animation: pm-modal-in 0.18s ease;
+  margin: auto;
+}
+
+.pm-modal-sm { max-width: 360px; }
+
+@keyframes pm-modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── Modal Header ── */
+.pm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--kape-border);
+  background: var(--kape-pale);
+}
+
+.pm-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pm-modal-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kape);
+  color: #f5f0eb;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.pm-modal-icon-edit    { background: #1654a0; }
+.pm-modal-icon-danger  { background: #e24b4a; }
+
+.pm-modal-header h2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--kape);
+  margin: 0;
+}
+
+.pm-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 15px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.pm-modal-close:hover {
+  background: #e8dfd6;
+  color: var(--kape);
+}
+
+/* ── Modal Body ── */
+.pm-modal-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.pm-modal-body::-webkit-scrollbar { width: 5px; }
+.pm-modal-body::-webkit-scrollbar-track { background: transparent; }
+.pm-modal-body::-webkit-scrollbar-thumb { background: var(--kape-border); border-radius: 4px; }
+
+/* ── Form Fields ── */
+.pm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pm-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pm-optional {
+  font-size: 11px;
+  color: #bbb;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.pm-field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.pm-field-row .pm-field { flex: 1; }
+
+.pm-input {
+  padding: 8px 11px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid var(--kape-border);
+  border-radius: 7px;
+  outline: none;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.pm-input:focus { border-color: var(--kape); }
+
+.pm-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.pm-select {
+  padding: 8px 11px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid var(--kape-border);
+  border-radius: 7px;
+  outline: none;
+  color: #333;
+  background: #fff;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+.pm-select:focus { border-color: var(--kape); }
+
+/* ── File Upload ── */
+.pm-file-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1.5px dashed var(--kape-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--kape-light);
+  background: var(--kape-pale);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pm-file-label:hover {
+  border-color: var(--kape);
+  background: #eee8e1;
+}
+
+.pm-file-label input[type="file"] {
+  display: none;
+}
+
+.pm-file-label i { font-size: 14px; }
+
+/* ── Delete message ── */
+.pm-delete-msg {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  padding: 0.5rem 0;
+}
+
+/* ── Modal Footer ── */
+.pm-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--kape-border);
+  background: #faf7f4;
+  align-items: center;
+}
+
+/* ── Shared button styles ── */
+.pm-btn-ghost,
+.pm-btn-primary,
+.pm-btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s;
+  height: 40px;
+  
+}
+
+.pm-btn-ghost {
+  background: transparent;
+  border-color: #ddd;
+  color: #666;
+}
+
+.pm-btn-ghost:hover {
+  background: var(--kape-pale);
+  border-color: var(--kape-border);
+  color: var(--kape);
+}
+
+.pm-btn-primary {
+  background: var(--kape);
+  border-color: var(--kape);
+  color: #fff;
+  
+}
+
+.pm-btn-primary:hover {
+  background: var(--kape-hover);
+  border-color: var(--kape-hover);
+}
+
+.pm-btn-danger {
+  background: #e24b4a;
+  border-color: #e24b4a;
+  color: #fff;
+}
+
+.pm-btn-danger:hover {
+  background: #a32d2d;
+  border-color: #a32d2d;
+}

@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/Css/notice-card.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/dashboard.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/admin-chat.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/57260c913b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/Css/AdminCss/users.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/products.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/comments.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/orders.css" />
+    <link rel="stylesheet" href="assets/Css/AdminCss/feedback-contact.css">
+
+    <title>Dashboard</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="main-sidebar">
+        <div class="sidebar-label">
+          <button onclick="showContent('home')" title="Dashboard">
+            <i
+              class="fa-solid fa-tachograph-digital nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('manage')" title="Manage">
+            <i
+              class="fa-solid fa-dolly nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('orders')" title="Orders">
+            <i
+              class="fa-solid fa-bag-shopping nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('users')" title="Users">
+            <i
+              class="fa-solid fa-users nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('feedback')" title="Feedback">
+            <i
+              class="fa-solid fa-comments nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('comments')" title="Comments">
+            <i
+              class="fa-solid fa-comment-dots nav-icon"
+              style="color: rgb(73, 54, 40)"
+            ></i>
+          </button>
+        </div>
+
+        <div class="sidebar-label">
+          <button onclick="showContent('contact')" title="Contact">
+            <i class="fa-solid fa-headset nav-icon" style="color: #493628"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-container">
+        <div class="logo">
+          <img src="assets/img/logo.png" style="width: 50px" alt="logo" />
+          KapeBara Admin Panel
+        </div>
+        <div class="header-functions">
+          <span id="user-name">Admin </span>
+          <span id="logout"></span>
+        </div>
+      </div>
+
+      <div class="content">
+        <div id="home" class="section">
+          <div class="dashboard">
+            <div class="dashboard-title">
+              <h1>Dashboard</h1>
+              <span>
+                <select
+                  class="select"
+                  name="time-range"
+                  id="time-range"
+                  placeholder="Select Time Range"
+                >
+                  <option value="today">Today</option>
+                  <option value="last-week">Last 7 Days</option>
+                  <option value="last-30day">Last 30 Days</option>
+                  <option value="this-Month">This Month</option>
+                  <option value="this-Year">This Year</option>
+                </select>
+                <button class="custom-button" onclick="exportDashboard()">
+                  Export
+                  <i class="fa-solid fa-file-export"></i>
+                </button>
+              </span>
+            </div>
+            <div class="chart-container">
+              <canvas id="myChart"> Fallback </canvas>
+            </div>
+            <div class="sales">
+              <div class="sales-title">
+                <h2>Sales Data</h2>
+              </div>
+              <div class="total-sales-container">
+                <p id="total-sales">$10,000</p>
+                <p class="sales-label">Total Sales</p>
+              </div>
+              <div class="monthly-growth-container">
+                <p id="monthly-growth">5%</p>
+                <p class="sales-label">Total Orders</p>
+              </div>
+              <div class="total-users-container">
+                <p id="total-users">0</p>
+                <p class="sales-label">Total Users</p>
+              </div>
+            </div>
+            <div class="top-seller-container">
+              <h2>Top Sellers</h2>
+              <table class="table-custom">
+                <thead class="table-custom">
+                  <tr>
+                    <th scope="col">Items</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Orders</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">R1C1</td>
+                    <td>R1C2</td>
+                    <td>R1C3</td>
+                  </tr>
+                  <tr class="">
+                    <td scope="row">Item</td>
+                    <td>Item</td>
+                    <td>Item</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="manage" class="section">
+          <!-- ── Toast Notification ── -->
+          <div class="pm-toast" id="toasty">
+            <div class="pm-toast-inner">
+              <span class="pm-toast-icon"
+                ><i class="fa-solid fa-circle-check"></i
+              ></span>
+              <span class="pm-toast-msg">Product Updated!</span>
+            </div>
+          </div>
+
+          <!-- ── Header ── -->
+          <div class="pm-header">
+            <h1 class="pm-title">Manage Products</h1>
+            <div class="pm-actions">
+              <div class="pm-filter-tabs">
+                <button
+                  class="pm-tab active"
+                  data-filter="all"
+                  onclick="filterProducts('all', this)"
+                >
+                  All
+                </button>
+                <button
+                  class="pm-tab"
+                  data-filter="in-stock"
+                  onclick="filterProducts('in-stock', this)"
+                >
+                  In Stock
+                </button>
+                <button
+                  class="pm-tab"
+                  data-filter="out-of-stock"
+                  onclick="filterProducts('out-of-stock', this)"
+                >
+                  Out of Stock
+                </button>
+              </div>
+              <button class="pm-btn-add" id="add-btn">
+                <i class="fa-solid fa-plus"></i> Add Product
+              </button>
+            </div>
+          </div>
+
+          <!-- ── Product Table ── -->
+          <div class="pm-table-wrap">
+            <table class="pm-table">
+              <colgroup>
+                <col style="width: 64px" />
+                <col style="width: 25%" />
+                <col style="width: 12%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 15%" />
+                <col style="width: 16%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="products-table-body">
+                <!--GENERATED-->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ── Add Product Modal ── -->
+          <div id="add-product-modal" class="pm-modal-backdrop">
+            <div class="pm-modal">
+              <div class="pm-modal-header">
+                <div class="pm-modal-title-group">
+                  <span class="pm-modal-icon"
+                    ><i class="fa-solid fa-plus"></i
+                  ></span>
+                  <h2>Add Product</h2>
+                </div>
+                <button class="pm-modal-close" id="card-cancel-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="pm-modal-body">
+                <div class="pm-field">
+                  <label>Product Name</label>
+                  <input
+                    class="pm-input"
+                    type="text"
+                    id="product-name"
+                    placeholder="e.g. Caramel Latte"
+                  />
+                </div>
+                <div class="pm-field">
+                  <label>Description</label>
+                  <textarea
+                    class="pm-input pm-textarea"
+                    id="description"
+                    placeholder="Short product description…"
+                  ></textarea>
+                </div>
+                <div class="pm-field-row">
+                  <div class="pm-field">
+                    <label>Price (₱)</label>
+                    <input
+                      class="pm-input"
+                      type="number"
+                      id="price"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                    />
+                  </div>
+                  <div class="pm-field">
+                    <label>Stock</label>
+                    <input
+                      class="pm-input"
+                      type="number"
+                      id="stock"
+                      min="0"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <div class="pm-field">
+                  <label>Category</label>
+                  <select class="pm-select" id="category">
+                    <option value="drinks">Drinks</option>
+                    <option value="snacks">Snacks</option>
+                  </select>
+                </div>
+                <div class="pm-field">
+                  <label>Product Image</label>
+                  <label class="pm-file-label" for="image">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span id="image-label-text">Click to upload image</span>
+                    <input
+                      type="file"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                      onchange="updateFileLabel('image', 'image-label-text')"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="pm-modal-footer">
+                <button class="pm-btn-ghost" id="card-cancel-btn-2">
+                  Cancel
+                </button>
+                <button class="pm-btn-primary" id="card-add-btn">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Edit Product Modal ── -->
+          <div id="edit-product-modal" class="pm-modal-backdrop">
+            <div class="pm-modal">
+              <div class="pm-modal-header">
+                <div class="pm-modal-title-group">
+                  <span class="pm-modal-icon pm-modal-icon-edit"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></span>
+                  <h2>Edit Product</h2>
+                </div>
+                <button class="pm-modal-close" id="card-editcancel-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="pm-modal-body">
+                <div class="pm-field">
+                  <label>Product Name</label>
+                  <input class="pm-input" type="text" id="edit-product-name" />
+                </div>
+                <div class="pm-field">
+                  <label>Description</label>
+                  <textarea
+                    class="pm-input pm-textarea"
+                    id="edit-description"
+                  ></textarea>
+                </div>
+                <div class="pm-field-row">
+                  <div class="pm-field">
+                    <label>Price (₱)</label>
+                    <input
+                      class="pm-input"
+                      type="number"
+                      id="edit-price"
+                      min="0"
+                      step="0.01"
+                    />
+                  </div>
+                  <div class="pm-field">
+                    <label>Stock</label>
+                    <input
+                      class="pm-input"
+                      type="number"
+                      id="edit-stock"
+                      min="0"
+                    />
+                  </div>
+                </div>
+                <div class="pm-field">
+                  <label>Category</label>
+                  <select class="pm-select" id="edit-category">
+                    <option value="drinks">Drinks</option>
+                    <option value="snacks">Snacks</option>
+                  </select>
+                </div>
+                <div class="pm-field">
+                  <label
+                    >Replace Image
+                    <span class="pm-optional">(optional)</span></label
+                  >
+                  <label class="pm-file-label" for="edit-image">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span id="edit-image-label-text"
+                      >Click to upload new image</span
+                    >
+                    <input
+                      type="file"
+                      id="edit-image"
+                      name="image"
+                      accept="image/*"
+                      onchange="
+                        updateFileLabel('edit-image', 'edit-image-label-text')
+                      "
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="pm-modal-footer">
+                <button class="pm-btn-ghost" id="card-editcancel-btn-2">
+                  Cancel
+                </button>
+                <button class="pm-btn-primary" id="card-edit-btn">
+                  <i class="fa-solid fa-floppy-disk"></i> Save
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Delete Confirm Modal ── -->
+          <div id="delete-product-modal" class="pm-modal-backdrop">
+            <div class="pm-modal pm-modal-sm">
+              <div class="pm-modal-header">
+                <div class="pm-modal-title-group">
+                  <span class="pm-modal-icon pm-modal-icon-danger"
+                    ><i class="fa-solid fa-triangle-exclamation"></i
+                  ></span>
+                  <h2>Delete Product?</h2>
+                </div>
+                <button
+                  class="pm-modal-close"
+                  onclick="
+                    document.getElementById(
+                      'delete-product-modal',
+                    ).style.display = 'none'
+                  "
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="pm-modal-body">
+                <p id="delete-product-msg" class="pm-delete-msg"></p>
+              </div>
+              <div class="pm-modal-footer">
+                <button
+                  class="pm-btn-ghost"
+                  onclick="
+                    document.getElementById(
+                      'delete-product-modal',
+                    ).style.display = 'none'
+                  "
+                >
+                  Cancel
+                </button>
+                <button class="pm-btn-danger" id="confirm-delete-btn">
+                  <i class="fa-solid fa-trash"></i> Yes, Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="users" class="section">
+          <!-- ── Header ── -->
+          <div class="um-header">
+            <h1 class="um-title">Manage Users</h1>
+            <div class="um-actions">
+              <div class="um-search-wrap">
+                <i class="fa-solid fa-magnifying-glass um-search-icon"></i>
+                <input
+                  class="um-search-input"
+                  type="text"
+                  id="user-search"
+                  placeholder="Search name or email…"
+                  oninput="filterAndRender()"
+                />
+              </div>
+              <div class="um-filter-tabs">
+                <button
+                  class="um-tab active"
+                  data-filter="all"
+                  onclick="loadUsers('all')"
+                >
+                  All
+                </button>
+                <button
+                  class="um-tab"
+                  data-filter="registered"
+                  onclick="loadUsers('registered')"
+                >
+                  Registered
+                </button>
+                <button
+                  class="um-tab"
+                  data-filter="guest"
+                  onclick="loadUsers('guest')"
+                >
+                  Guest
+                </button>
+              </div>
+              <span id="user-count" class="um-count"></span>
+            </div>
+          </div>
+
+          <!-- ── Table ── -->
+          <div class="um-table-wrap">
+            <table class="um-table">
+              <colgroup>
+                <col style="width: 18%" />
+                <col style="width: 20%" />
+                <col style="width: 13%" />
+                <col style="width: 14%" />
+                <col style="width: 11%" />
+                <col style="width: 10%" />
+                <col style="width: 14%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>City</th>
+                  <th>Joined</th>
+                  <th>Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="users-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- ── Edit Modal ── -->
+          <div id="edit-user-modal" class="um-modal-backdrop">
+            <div class="um-modal">
+              <div class="um-modal-header">
+                <h2>Edit User</h2>
+                <button
+                  class="um-modal-close"
+                  onclick="
+                    document.getElementById('edit-user-modal').style.display =
+                      'none'
+                  "
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="um-modal-body">
+                <div class="um-field">
+                  <label>Name</label>
+                  <input class="um-input" type="text" id="edit-user-name" />
+                </div>
+                <div class="um-field">
+                  <label>Email</label>
+                  <input class="um-input" type="email" id="edit-user-email" />
+                </div>
+                <div class="um-field-row">
+                  <div class="um-field">
+                    <label>Phone</label>
+                    <input class="um-input" type="text" id="edit-user-phone" />
+                  </div>
+                  <div class="um-field">
+                    <label>City</label>
+                    <input class="um-input" type="text" id="edit-user-city" />
+                  </div>
+                </div>
+                <div class="um-field">
+                  <label>Address</label>
+                  <input class="um-input" type="text" id="edit-user-address" />
+                </div>
+              </div>
+              <div class="um-modal-footer">
+                <button
+                  class="um-btn-ghost"
+                  onclick="
+                    document.getElementById('edit-user-modal').style.display =
+                      'none'
+                  "
+                >
+                  Cancel
+                </button>
+                <button class="um-btn-primary" onclick="saveEditUser()">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Delete Confirm Modal ── -->
+          <div id="delete-user-modal" class="um-modal-backdrop">
+            <div class="um-modal um-modal-sm">
+              <div class="um-modal-header">
+                <h2>Delete User?</h2>
+                <button
+                  class="um-modal-close"
+                  onclick="
+                    document.getElementById('delete-user-modal').style.display =
+                      'none'
+                  "
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="um-modal-body">
+                <div class="um-delete-icon-wrap">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p id="delete-user-msg" class="um-delete-msg"></p>
+              </div>
+              <div class="um-modal-footer">
+                <button
+                  class="um-btn-ghost"
+                  onclick="
+                    document.getElementById('delete-user-modal').style.display =
+                      'none'
+                  "
+                >
+                  Cancel
+                </button>
+                <button class="um-btn-danger" onclick="confirmDeleteUser()">
+                  Yes, Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="comments" class="section">
+          <!-- Toast -->
+          <div class="cm-toast" id="cm-toasty">
+            <div class="cm-toast-inner">
+              <span class="cm-toast-icon"
+                ><i class="fa-solid fa-circle-check"></i
+              ></span>
+              <span class="cm-toast-msg">Done!</span>
+            </div>
+          </div>
+
+          <!-- Header -->
+          <div class="cm-header">
+            <h1 class="cm-title">Product Comments</h1>
+          </div>
+
+          <!-- Table -->
+          <div class="cm-table-wrap">
+            <table class="cm-table">
+              <colgroup>
+                <col style="width: 15%" />
+                <col style="width: 18%" />
+                <col style="width: 12%" />
+                <col style="width: 38%" />
+                <col style="width: 12%" />
+                <col style="width: 5%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Product</th>
+                  <th>Rating</th>
+                  <th>Comment</th>
+                  <th>Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="comments-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Delete Confirm Modal -->
+          <div id="delete-comment-modal" class="cm-modal-backdrop">
+            <div class="cm-modal">
+              <div class="cm-modal-header">
+                <h2>Delete Comment?</h2>
+                <button class="cm-modal-close" id="cancel-comment-delete-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="cm-modal-body">
+                <div class="cm-delete-icon-wrap">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p id="delete-comment-msg" class="cm-delete-msg"></p>
+              </div>
+              <div class="cm-modal-footer">
+                <button
+                  class="cm-btn-ghost"
+                  id="cancel-comment-delete-btn-2"
+                  onclick="
+                    document.getElementById(
+                      'delete-comment-modal',
+                    ).style.display = 'none'
+                  "
+                >
+                  Cancel
+                </button>
+                <button class="cm-btn-danger" id="confirm-comment-delete-btn">
+                  Yes, Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="orders" class="section">
+          <!-- Toast -->
+          <div class="om-toast" id="om-toasty">
+            <div class="om-toast-inner">
+              <span class="om-toast-icon"
+                ><i class="fa-solid fa-circle-check"></i
+              ></span>
+              <span class="om-toast-msg">Done!</span>
+            </div>
+          </div>
+
+          <!-- Header -->
+          <div class="om-header">
+            <h1 class="om-title">
+              Customer Orders
+            </h1>
+          </div>
+
+          <!-- Table -->
+          <div class="om-table-wrap">
+            <table class="om-table">
+              <colgroup>
+                <col style="width: 7%" />
+                <col style="width: 20%" />
+                <col style="width: 25%" />
+                <col style="width: 11%" />
+                <col style="width: 11%" />
+                <col style="width: 13%" />
+                <col style="width: 5%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="orders-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Delete Confirm Modal -->
+          <div id="delete-order-modal" class="om-modal-backdrop">
+            <div class="om-modal">
+              <div class="om-modal-header">
+                <h2>Delete Order?</h2>
+                <button class="om-modal-close om-cancel-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="om-modal-body">
+                <div class="om-delete-icon-wrap">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p id="delete-order-msg" class="om-delete-msg"></p>
+              </div>
+              <div class="om-modal-footer">
+                <button class="om-btn-ghost om-cancel-btn">Cancel</button>
+                <button class="om-btn-danger" id="confirm-order-delete-btn">
+                  Yes, Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="feedback" class="section">
+          <div class="fb-header">
+            <h1 class="fb-title">Customer Feedback</h1>
+            <div class="fb-meta">
+              <span id="fb-count" class="fb-count"></span>
+              <div class="fb-filter-tabs">
+                <button
+                  class="fb-tab active"
+                  data-filter="all"
+                  onclick="filterFeedback('all', this)"
+                >
+                  All
+                </button>
+                <button
+                  class="fb-tab"
+                  data-filter="5"
+                  onclick="filterFeedback('5', this)"
+                >
+                  ★ 5
+                </button>
+                <button
+                  class="fb-tab"
+                  data-filter="4"
+                  onclick="filterFeedback('4', this)"
+                >
+                  ★ 4
+                </button>
+                <button
+                  class="fb-tab"
+                  data-filter="low"
+                  onclick="filterFeedback('low', this)"
+                >
+                  Low (1–3)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fb-table-wrap">
+            <table class="fb-table">
+              <colgroup>
+                <col style="width: 14%" />
+                <col style="width: 17%" />
+                <col style="width: 9%" />
+                <col style="width: 11%" />
+                <col style="width: 14%" />
+                <col style="width: 22%" />
+                <col style="width: 7%" />
+                <col style="width: 11%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Rating</th>
+                  <th>Category</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>Photo</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="feedback-table-body">
+                <!-- feedback rows load here -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Photo lightbox -->
+          <div id="fb-lightbox" class="fb-lightbox" onclick="closeLightbox()">
+            <img id="fb-lightbox-img" src="" alt="Feedback photo" />
+          </div>
+        </div>
+
+        <div id="contact" class="section">
+          <div class="cs-header">
+            <h1 class="cs-title">Customer Support</h1>
+            <span id="cs-online-dot" class="cs-online-dot" title="Live"></span>
+          </div>
+
+          <div class="cs-layout">
+            <!-- ── Sidebar: user list ── -->
+            <div class="cs-sidebar">
+              <div class="cs-sidebar-head">Conversations</div>
+              <div id="users-list" class="cs-users-list">
+                <!-- rendered by admin-chat.js -->
+              </div>
+            </div>
+
+            <!-- ── Main: conversation pane ── -->
+            <div class="cs-pane">
+              <div class="cs-pane-head">
+                <div class="cs-pane-user" id="selected-user">
+                  Select a customer
+                </div>
+              </div>
+              <div id="conversation" class="cs-conversation">
+                <div class="cs-empty">
+                  Select a conversation to get started.
+                </div>
+              </div>
+              <div class="cs-reply-area">
+                <input
+                  id="reply-input"
+                  class="cs-reply-input"
+                  type="text"
+                  placeholder="Type a reply…"
+                  autocomplete="off"
+                />
+                <button id="reply-send" class="cs-reply-send">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Scripts-->
+    <script>
+      if (localStorage.getItem("user_role") != "admin") {
+        alert("Access Denied");
+        window.location.href = "login.html";
+      }
+    </script>
+    <script src="assets/scripts/AdminJs/commentsAdmin.js"></script>
+    <script src="assets/scripts/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+    <script src="assets/scripts/dashboard.js"></script>
+    <script src="assets/scripts/products.js"></script>
+    <script src="assets/scripts/tab-function.js"></script>
+    <script src="assets/scripts/AdminJs/admin-chat.js"></script>
+    <script src="assets/scripts/export.js"></script>
+    <script src="assets/scripts/AdminJs/users.js"></script>
+    <script src="assets/scripts/AdminJs/ordersAdmin.js"></script>
+  </body>
+</html>

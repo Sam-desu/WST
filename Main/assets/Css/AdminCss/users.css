@@ -1,0 +1,466 @@
+/* ============================================================
+   Manage Users — users.css
+   KapeBara Admin Panel
+   ============================================================ */
+
+/* ── Variables ── */
+:root {
+  --kape:        #493628;
+  --kape-hover:  #38291f;
+  --kape-pale:   #f5f0eb;
+  --kape-border: #e8dfd6;
+}
+
+/* ── Header ── */
+.um-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.um-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--kape);
+  margin: 0;
+}
+
+.um-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.um-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.um-search-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 12px;
+  color: #999;
+  pointer-events: none;
+}
+
+.um-search-input {
+  padding: 7px 12px 7px 30px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid var(--kape-border);
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  outline: none;
+  width: 220px;
+  transition: border-color 0.15s;
+}
+
+.um-search-input:focus {
+  border-color: var(--kape);
+}
+
+.um-search-input::placeholder {
+  color: #bbb;
+}
+
+/* ── Filter Tabs ── */
+.um-filter-tabs {
+  display: flex;
+  gap: 2px;
+  background: #f0ebe5;
+  border-radius: 8px;
+  padding: 3px;
+  border: 1px solid var(--kape-border);
+}
+
+.um-tab {
+  padding: 5px 14px;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 400;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+  color: #7a6555;
+  transition: all 0.15s;
+}
+
+.um-tab.active {
+  background: var(--kape);
+  color: #fff;
+  font-weight: 500;
+}
+
+.um-tab:hover:not(.active) {
+  background: #e4dbd3;
+  color: var(--kape);
+}
+
+/* ── User Count ── */
+.um-count {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* ── Table Wrapper ── */
+.um-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--kape-border);
+  background: #fff;
+}
+
+/* ── Table ── */
+.um-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+.um-table thead tr {
+  border-bottom: 1px solid var(--kape-border);
+}
+
+.um-table th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b4c36;
+  background: var(--kape-pale);
+}
+
+.um-table th:first-child { border-radius: 12px 0 0 0; }
+.um-table th:last-child  { border-radius: 0 12px 0 0; }
+
+.um-table td {
+  padding: 11px 14px;
+  color: #333;
+  border-bottom: 1px solid #f2ece6;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.um-table tr:last-child td {
+  border-bottom: none;
+}
+
+.um-table tbody tr:hover td {
+  background: #faf6f2;
+}
+
+/* ── Avatar ── */
+.um-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: #e4dbd3;
+  color: var(--kape);
+}
+
+.um-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.um-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Muted text ── */
+.um-muted {
+  color: #aaa;
+}
+
+/* ── Badges ── */
+.badge-registered {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  background: #e8f5ee;
+  color: #1a6b3a;
+  white-space: nowrap;
+}
+
+.badge-guest {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  background: #fef3e2;
+  color: #92520a;
+  white-space: nowrap;
+}
+
+/* ── Action Buttons ── */
+.um-actions-cell {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.um-btn-edit,
+.um-btn-del {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.um-btn-edit {
+  background: transparent;
+  border-color: #ddd;
+  color: #666;
+}
+
+.um-btn-edit:hover {
+  background: #f5f0eb;
+  border-color: var(--kape);
+  color: var(--kape);
+}
+
+.um-btn-del {
+  background: transparent;
+  border-color: #f7c1c1;
+  color: #a32d2d;
+}
+
+.um-btn-del:hover {
+  background: #fcebeb;
+  border-color: #e24b4a;
+}
+
+/* ── Guest "view only" label ── */
+.um-view-only {
+  font-size: 11px;
+  color: #bbb;
+  font-style: italic;
+}
+
+/* ── Empty state ── */
+.um-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* ── Modal Backdrop ── */
+.um-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 25, 15, 0.45);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Modal Box ── */
+.um-modal {
+  background: #fff;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 460px;
+  box-shadow: 0 8px 32px rgba(73, 54, 40, 0.18);
+  overflow: hidden;
+  animation: um-modal-in 0.18s ease;
+}
+
+.um-modal-sm {
+  max-width: 360px;
+}
+
+@keyframes um-modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.um-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--kape-border);
+  background: var(--kape-pale);
+}
+
+.um-modal-header h2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--kape);
+  margin: 0;
+}
+
+.um-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 15px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.um-modal-close:hover {
+  background: #e8dfd6;
+  color: var(--kape);
+}
+
+/* ── Modal Body ── */
+.um-modal-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.um-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.um-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.um-field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.um-field-row .um-field {
+  flex: 1;
+}
+
+.um-input {
+  padding: 8px 11px;
+  font-size: 13px;
+  font-family: inherit;
+  border: 1px solid var(--kape-border);
+  border-radius: 7px;
+  outline: none;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+.um-input:focus {
+  border-color: var(--kape);
+}
+
+/* ── Delete icon/message ── */
+.um-delete-icon-wrap {
+  text-align: center;
+  font-size: 28px;
+  color: #e24b4a;
+  margin-bottom: 6px;
+}
+
+.um-delete-msg {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Modal Footer ── */
+.um-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--kape-border);
+  background: #faf7f4;
+}
+
+/* ── Shared button styles ── */
+.um-btn-ghost,
+.um-btn-primary,
+.um-btn-danger {
+  padding: 7px 18px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s;
+}
+
+.um-btn-ghost {
+  background: transparent;
+  border-color: #ddd;
+  color: #666;
+}
+
+.um-btn-ghost:hover {
+  background: #f5f0eb;
+  border-color: var(--kape-border);
+  color: var(--kape);
+}
+
+.um-btn-primary {
+  background: var(--kape);
+  border-color: var(--kape);
+  color: #fff;
+}
+
+.um-btn-primary:hover {
+  background: var(--kape-hover);
+  border-color: var(--kape-hover);
+}
+
+.um-btn-danger {
+  background: #e24b4a;
+  border-color: #e24b4a;
+  color: #fff;
+}
+
+.um-btn-danger:hover {
+  background: #a32d2d;
+  border-color: #a32d2d;
+}

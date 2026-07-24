@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/57260c913b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="assets/Css/style-signup.css" />
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slide-track">
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15697027/pexels-photo-15697027.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/33740268/pexels-photo-33740268.png"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15865550/pexels-photo-15865550.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/35116507/pexels-photo-35116507.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/32488184/pexels-photo-32488184.jpeg"
+        />
+
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15697027/pexels-photo-15697027.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/33740268/pexels-photo-33740268.png"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15865550/pexels-photo-15865550.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/35116507/pexels-photo-35116507.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/32488184/pexels-photo-32488184.jpeg"
+        />
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="signup">
+        <div class="signup-title">
+          <img src="assets/img/logo.png" alt="logo" style="width: 300px" />
+          <h1 class="heading">Sign Up</h1>
+        </div>
+        
+
+        <div class="signup-card" id="signup-card">
+          <form onsubmit="return false;">
+            <div class="name">
+              <input
+                id="firstName"
+                class="input firstname"
+                type="text"
+                placeholder="First Name"
+                required
+              />
+              <input
+                id="lastName"
+                class="input lastname"
+                type="text"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+            <input
+              id="email"
+              class="input"
+              type="text"
+              placeholder="Email"
+              required
+            />
+            <div class="Address">
+              <input
+                class="input"
+                style="width: 231px"
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Address"
+              />
+              <input
+                class="input"
+                type="text"
+                style="width: 132px"
+                name="city"
+                id="city"
+                placeholder="City"
+              />
+            </div>
+            <input
+              id="phone"
+              class="input"
+              type="tel"
+              placeholder="Phone Number"
+              name="Phone"
+              required
+            />
+            <input
+              id="password"
+              class="input"
+              type="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              id="confirm-password"
+              class="input"
+              type="password"
+              placeholder="Re-enter Password"
+              required
+            />
+            <div class="terms">
+              <input type="checkbox" id="terms" required />
+              <span>Read <a href="terms.html">Terms and Condition</a></span>
+            </div>
+            <div
+            class="g-recaptcha"
+            data-sitekey="6LcB1r0sAAAAAGAZANpKUPTPIhAdxK1GwVhHwSZF"
+          ></div>
+            <div class="containerbtn">
+              <button class="btn" onclick="handleSignup(event)">
+                <span>Submit</span>
+              </button>
+            </div>
+          </form>
+          <div class="login">
+            <span
+              >Already have an Account? <a href="login.html">Click me!</a></span
+            >
+          </div>
+        </div>
+        <div class="otp-card" id="otp-card">
+          <h1 class="heading"><i class="fa-solid fa-envelope-circle-check" style="color: rgb(73, 54, 40);"></i></h1>
+          <h1 class="heading">Enter OTP</h1>
+          <p>
+            One Time Password (OTP) has been sent via Email to
+            <span id="otp-email"></span>
+          </p>
+          <div class="input-resend">
+            <input
+            class="input otp-input"
+            type="number"
+            id="otp-input"
+            placeholder="Enter OTP"
+          />
+          <button id="resend" class="resend">
+            Resend
+          </button>
+          </div>
+          
+          
+          <button class="btn" onclick="verifyOTP()">verify otp</button>
+        </div>
+      </div>
+    </div>
+
+    <!--SCRIPT-->
+    <script src="assets/scripts/auth.js"></script>
+    <script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+        ></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Jua&family=Lexend:wght@100..900&family=Sniglet:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/57260c913b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/Css/style-login.css" />
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slide-track">
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15697027/pexels-photo-15697027.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/33740268/pexels-photo-33740268.png"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15865550/pexels-photo-15865550.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/35116507/pexels-photo-35116507.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/32488184/pexels-photo-32488184.jpeg"
+        />
+
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15697027/pexels-photo-15697027.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/33740268/pexels-photo-33740268.png"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/15865550/pexels-photo-15865550.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/35116507/pexels-photo-35116507.jpeg"
+        />
+        <img
+          class="carousel"
+          src="https://images.pexels.com/photos/32488184/pexels-photo-32488184.jpeg"
+        />
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="forgot" id="forgot">
+        <i class="fa-solid fa-lock" style="color: rgb(73, 54, 40)"></i>
+        <h1 class="heading">Reset Password</h1>
+        <p class="forgot-message">
+          Enter your email, and we will sent you an One Time Password (OTP)
+        </p>
+        <div>
+          <input
+            id="email"
+            class="input"
+            type="text"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div>
+          <button class="btn" onclick="sendEmail()">send email</button>
+        </div>
+      </div>
+      <div class="check-email" id="check-email">
+        <i class="fa-solid fa-envelope-open" style="color: rgb(73, 54, 40)"></i>
+        <h1 class="heading">Check your Email</h1>
+        <p class="forgot-message">
+          Enter the One Time Password (OTP) sent to <span id="otp-email"></span>
+        </p>
+        <input
+          id="otp-input"
+          class="input"
+          type="number"
+          placeholder="(OTP) One Text Password"
+          required
+        />
+
+          <button class="btn" onclick="verifyOTP()">Enter</button>
+      </div>
+      <div class="enter-pass" id="enter-pass">
+        <i class="fa-solid fa-arrows-rotate" style="color: rgb(73, 54, 40);"></i>
+        <h1 class="heading">Reset Password</h1>
+        <p class="forgot-message">
+          Make sure the password is more than 6 characters long. And Make it Memorable :)
+        </p>
+        <input
+          id="otp-pass-input"
+          class="input"
+          type="password"
+          placeholder="Enter Password"
+          required
+        />
+        <input
+          id="otp-confirm-input"
+          class="input"
+          type="password"
+          placeholder="Confirm Password"
+          required
+        />
+        <button class="btn" onclick="changePass()">Reset</button>
+        <div>
+      </div>
+    </div>
+
+    <script src="assets/scripts/forgot.js"></script>
+  </body>
+</html>

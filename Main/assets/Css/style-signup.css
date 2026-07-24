@@ -1,0 +1,320 @@
+/* For the main page/body */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* For the main page/body in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* For a specific container with a class 'scroll-container' */
+.scroll-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+* {
+  font-family: "Lexend", sans-serif;
+}
+
+
+body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #765e4c;
+}
+.main-container {
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  height: 100vb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  overflow: hidden;
+}
+
+#error-message {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.signup-title {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.signup-title::after {
+  z-index: 10;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-color: #49362898;
+  width: 3px;
+  height: 100%;
+  border-radius: 100px;
+}
+
+
+
+.signup {
+  padding: 10px;
+  box-sizing: border-box;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #d6c0b3;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signup-card {
+  width: 530px;
+
+}
+
+.signup-card.active {
+  width: 530px;
+  display: none;
+}
+
+
+.heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Lexend", sans-serif;
+  font-size: 50px;
+  color: #493628;
+}
+.name {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.terms {
+  position: relative;
+  left: -15%;
+  margin-bottom: 10px;
+}
+.terms span {
+  font-family: "Lexend", sans-serif;
+  color: #493628;
+}
+.line-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+.line-text span {
+  flex: 1;
+  height: 2px;
+  background-color: #493628;
+}
+
+.line-text p {
+  font-family: "Lexend", sans-serif;
+  color: #493628;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.signupIcon{
+  padding: 10px;
+  width: 50px;
+  transition: 0.5s;
+}
+
+.signupIcon:hover{
+  transform: scale(1.3);
+  transition: 0.5s;
+}
+
+.login {
+  margin-top: 20px;
+}
+.login span {
+  font-family: "Lexend", sans-serif;
+  font-size: 15px;
+  color: #493628;
+}
+
+.input {
+  height: 38px;
+  width: 400px;
+  border-radius: 8px;
+  border: 2px solid #493628;
+  outline: none;
+  transition: 200ms ease-in;
+  padding-left: 1rem;
+  margin: 5px;
+}
+
+.firstname {
+    width: 238px;
+}
+
+.lastname {
+    width: 132px;
+}
+
+.input:hover {
+  border-bottom: 4px solid #493628;
+  padding-top: 2px;
+}
+.input:focus {
+  border-bottom: 4px solid #493628;
+  padding-top: 2px;
+}
+
+.input::placeholder {
+  color: hsl#493628;
+  opacity: 0.5;
+}
+
+
+.otp-card {
+  margin: 40px;
+  width: 430px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.otp-card.active {
+  display: flex;
+
+}
+
+.otp-input {
+  width: 200px;
+}
+
+.input-resend {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.resend {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.containerbtn span{
+    font-family: "Lexend", sans-serif;
+}
+.btn {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: #e4e0e1;
+  background-color: #493628;
+  margin: 10px;
+}
+
+.g-recaptcha {
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px #493628;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px #765e4c;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn::after {
+  background-color: #493628;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.slider {
+  z-index: -1;
+  position: absolute;      
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 1000px;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: 1080px;
+  height: 720px;
+  width: calc(1095px * 10); /* image width × total images */
+  animation: scroll 40s linear infinite;
+}
+
+.slide-track img {
+  filter: blur(5px) brightness(70%);
+  width: 2000px;
+  height: auto;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
